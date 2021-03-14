@@ -10,19 +10,19 @@ export default function Home() {
     return date;
   });
   const [session] = useSession();
-
+  console.log(session)
   return (
     <div
       style={{ minHeight: "100vh" }}
       className="d-flex align-items-center justify-content-center"
     >
       <Head>
-        <title>Create Next App</title>
+        <title>Lugar de Luz</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="container text-center">
-        <h1>Lugar de Luz</h1>
+        <h1>Agendar</h1>
         {session ? (
           <div className="row">
             <form className="text-start">
@@ -31,10 +31,16 @@ export default function Home() {
                   Nome
                 </label>
                 <input
-                  type="name"
+                  type="text"
+                  minLength="2"
+                  maxLength="64"
                   className="form-control"
                   id="FormNome"
                   placeholder="Ex: José Maria"
+                  value={name}
+                  onChange={(event) => {
+                    setName(event.target.value);
+                  }}
                 ></input>
               </div>
               <div className="mt-3">
@@ -46,15 +52,14 @@ export default function Home() {
                   className="form-control"
                   id="FormDate"
                   min={date.toISOString().slice(0, 10)}
-                  defaultValue={date.toISOString().slice(0, 10)}
                   value={date.toISOString().slice(0, 10)}
                   onChange={(event) => {
-                    setDate(event.target.value);
+                    setDate(new Date(event.target.value));
                   }}
                 ></input>
               </div>
             </form>
-            <p>{/*JSON.stringify({ name, date })*/}</p>
+            <p>{JSON.stringify({ name, date, user: session.user.name })}</p>
           </div>
         ) : (
           <div className="mt-3">

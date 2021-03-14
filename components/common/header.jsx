@@ -6,14 +6,27 @@ export default function Header() {
   const [session, loading] = useSession();
   return (
     <header className="shadow">
-      <Navbar expand="sm shadow">
-        <img
-          src="/lugar-de-luz.min.svg"
-          alt="lugar de luz icone"
-          className="img-fluid ms-3"
-          height="42"
-          width="42"
-        />
+      <Navbar expand="sm shadow px-3">
+        <Navbar.Brand href="#">
+          <img
+            src="/lugar-de-luz.min.svg"
+            alt="lugar de luz icone"
+            className="img-fluid ms-3"
+            height="42"
+            width="42"
+          />
+        </Navbar.Brand>
+        {session ? (
+          <Navbar.Brand href="#">
+            <img
+              src={session.user.image}
+              alt="imagem da conta"
+              className="img-fluid rounded-circle"
+              height="42"
+              width="42"
+            />
+          </Navbar.Brand>
+        ) : null}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <div className="container navbar-nav">
@@ -24,17 +37,17 @@ export default function Header() {
               {!loading ? (
                 !session ? (
                   <button
-                    className="col nav-link btn"
+                    className="nav-link btn"
                     onClick={() => signIn("auth0")}
                   >
                     Entrar
                   </button>
                 ) : (
                   <button
-                    className="col nav-link btn"
+                    className="nav-link btn-close"
                     onClick={() => signOut()}
+                    aria-label="Close"
                   >
-                    Sair
                   </button>
                 )
               ) : (
