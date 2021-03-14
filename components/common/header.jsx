@@ -8,11 +8,11 @@ export default function Header() {
     <header className="shadow">
       <Navbar expand="sm shadow">
         <img
-          src="/vercel.svg"
+          src="/lugar-de-luz.min.svg"
           alt="lugar de luz icone"
           className="img-fluid ms-3"
-          height="24"
-          width="24"
+          height="42"
+          width="42"
         />
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

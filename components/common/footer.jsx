@@ -9,7 +9,7 @@ export default function Footer() {
             <blockquote className="blockquote">
               <p>Lugar de luz</p>
               <img
-                src="/vercel.svg"
+                src="/lugar-de-luz.min.svg"
                 alt="lugar de luz icone"
                 className="img-fluid m-3"
                 height="64"

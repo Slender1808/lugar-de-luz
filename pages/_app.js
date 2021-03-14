@@ -13,9 +13,11 @@ const apolloClient = new ApolloClient({
 function MyApp({ Component, pageProps }) {
   return (
     <ApolloProvider client={apolloClient}>
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
+      <Provider session={pageProps.session}>
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
+      </Provider>
     </ApolloProvider>
   );
 }
