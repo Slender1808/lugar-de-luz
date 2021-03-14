@@ -1,6 +1,6 @@
 {
   "name": "nextjs",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,6 +10,7 @@
   "dependencies": {
     "@apollo/client": "^3.3.11",
     "bootstrap": "^5.0.0-beta2",
+    "graphql": "^15.5.0",
     "next": "10.0.5",
     "next-auth": "^3.11.2",
     "react": "17.0.1",
