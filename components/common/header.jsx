@@ -4,6 +4,7 @@ import { signIn, signOut, useSession } from "next-auth/client";
 
 export default function Header() {
   const [session, loading] = useSession();
+  
   return (
     <header className="shadow">
       <Navbar expand="sm shadow px-3">
